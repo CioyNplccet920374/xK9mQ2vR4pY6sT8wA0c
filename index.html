@@ -12114,9 +12114,9 @@
     }
 
     .qq-page.thread-mode .qq-message-bubble:has(.qq-message-quote) {
-      max-width: min(72%, 260px) !important;
+      max-width: 100% !important;
       border-radius: 20px !important;
-      display: block;
+      display: block !important;
       padding: var(--bubble-pad-y, 8px) var(--bubble-pad-x, 12px) !important;
       box-sizing: border-box !important;
     }
@@ -12509,7 +12509,6 @@
       position: relative;
       display: inline-block !important;
       width: fit-content !important;
-      min-width: fit-content !important;
       max-width: 100% !important;
       padding: var(--bubble-pad-y, 8px) var(--bubble-pad-x, 14px) !important;
       color: #262626 !important;
@@ -14014,7 +14013,7 @@
 
     /* 1. 带引用的气泡：对齐对应的对话气泡背景色、圆角与最大宽度限制 */
     .qq-page.thread-mode .qq-message-bubble:has(.qq-message-quote) {
-      max-width: min(72%, 260px) !important;
+      max-width: 100% !important;
       width: fit-content !important;
       display: block !important;
       padding: var(--bubble-pad-y, 8px) var(--bubble-pad-x, 12px) !important;
@@ -14041,20 +14040,18 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      max-width: min(72%, 270px);
-      min-width: fit-content;
-      width: auto;
-      flex: 0 0 auto;
+      max-width: calc(100% - 96px);
+      width: fit-content;
+      flex-shrink: 0;
     }
 
     .qq-page.thread-mode .group-msg-bubble-col.self-col {
       align-items: flex-end;
       display: flex;
       flex-direction: column;
-      max-width: min(72%, 270px);
-      min-width: fit-content;
-      width: auto;
-      flex: 0 0 auto;
+      max-width: calc(100% - 96px);
+      width: fit-content;
+      flex-shrink: 0;
     }
 
     .qq-page.thread-mode .group-msg-bubble-col .qq-message-bubble {
@@ -14067,20 +14064,18 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      max-width: min(72%, 270px);
-      min-width: fit-content;
-      width: auto;
-      flex: 0 0 auto;
+      max-width: calc(100% - 96px);
+      width: fit-content;
+      flex-shrink: 0;
     }
 
     .qq-message-bubble-col.self-col {
       align-items: flex-end;
       display: flex;
       flex-direction: column;
-      max-width: min(72%, 270px);
-      min-width: fit-content;
-      width: auto;
-      flex: 0 0 auto;
+      max-width: calc(100% - 96px);
+      width: fit-content;
+      flex-shrink: 0;
     }
 
     /* 确保我方气泡与卡片在上，时间戳固定展示在气泡下方 */
