@@ -15,9 +15,9 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <link rel="apple-touch-icon" href="https://i.postimg.cc/fW0vHc6S/IMG-0042.jpg" />
-  <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/fW0vHc6S/IMG-0042.jpg" />
-  <link id="catpawManifest" rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22QuQ%22%2C%22short_name%22%3A%22QuQ%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22fullscreen%22%2C%22background_color%22%3A%22%23f7f7f5%22%2C%22theme_color%22%3A%22%23f7f7f5%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22https%3A%2F%2Fi.postimg.cc%2FfW0vHc6S%2FIMG-0042.jpg%22%2C%22sizes%22%3A%22192x192%20512x512%22%2C%22type%22%3A%22image%2Fjpeg%22%7D%5D%7D" />
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/g05TMqLd/IMG-0225.jpg" />
+  <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/g05TMqLd/IMG-0225.jpg" />
+  <link id="catpawManifest" rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22QuQ%22%2C%22short_name%22%3A%22QuQ%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22fullscreen%22%2C%22background_color%22%3A%22%23f7f7f5%22%2C%22theme_color%22%3A%22%23f7f7f5%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22https%3A%2F%2Fi.postimg.cc%2Fg05TMqLd%2FIMG-0225.jpg%22%2C%22sizes%22%3A%22192x192%20512x512%22%2C%22type%22%3A%22image%2Fjpeg%22%7D%5D%7D" />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link
     rel="stylesheet"
@@ -25,7 +25,7 @@
   />
   <style>
     /* ============================================================
-       QuQ 原创极简现代登录门禁界面 (无缝契合纯粹黑白高级视觉)
+       微信绿 + 纯白 Ins 风登录门禁界面 (无大写英文装饰 · 呼吸感设计)
        ============================================================ */
     #catpawGateLockScreen {
       position: fixed;
@@ -35,8 +35,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      padding: calc(60px + env(safe-area-inset-top)) 28px calc(38px + env(safe-area-inset-bottom));
+      justify-content: center;
+      padding: calc(40px + env(safe-area-inset-top)) 28px calc(36px + env(safe-area-inset-bottom));
       user-select: none;
       -webkit-user-select: none;
       opacity: 1;
@@ -52,48 +52,55 @@
 
     .gate-container {
       width: 100%;
-      max-width: 326px;
+      max-width: 320px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      margin-top: auto;
-      margin-bottom: auto;
+      margin: auto 0;
     }
 
-    /* 极简字形 Logo 与副标 */
-    .gate-brand-logo {
-      font-size: 38px;
-      font-weight: 900;
-      color: #000000;
-      letter-spacing: 0.16em;
-      line-height: 1;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-      text-transform: lowercase;
-      transform: translateX(0.08em); /* 抵消末尾字间距居中 */
+    /* 应用专属头像图标展示区 */
+    .gate-app-icon-wrap {
+      position: relative;
+      width: 82px;
+      height: 82px;
+      border-radius: 22px;
+      background: #ffffff url("https://i.postimg.cc/g05TMqLd/IMG-0225.jpg") center/cover no-repeat;
+      box-shadow: 0 10px 30px rgba(7, 193, 96, 0.16), 0 2px 8px rgba(0, 0, 0, 0.06);
+      border: 1.5px solid rgba(7, 193, 96, 0.2);
+      margin-bottom: 18px;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .gate-brand-sub {
-      font-size: 10.5px;
-      color: #a0a0a0;
-      letter-spacing: 0.28em;
-      font-weight: 500;
-      margin-top: 10px;
-      text-transform: uppercase;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Arial, sans-serif;
-      transform: translateX(0.14em);
+    .gate-app-icon-wrap:active {
+      transform: scale(0.96);
     }
 
-    /* 居中大粗标题 */
+    .gate-app-badge {
+      position: absolute;
+      right: -4px;
+      bottom: -4px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #07c160;
+      color: #ffffff;
+      font-size: 11px;
+      display: grid;
+      place-items: center;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(7, 193, 96, 0.35);
+    }
+
+    /* 极简中文标题 */
     .gate-headline {
       font-size: 20px;
-      font-weight: 800;
-      color: #000000;
-      letter-spacing: 0.2em;
-      margin-top: 38px;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.04em;
       margin-bottom: 24px;
-      line-height: 1.2;
-      transform: translateX(0.1em);
+      line-height: 1.3;
     }
 
     .gate-input-box {
@@ -103,13 +110,13 @@
       gap: 12px;
     }
 
-    /* 浅灰超平滑微圆角输入框 (区别于常规圆药丸，视觉更加克制现代) */
+    /* 纯净浅底温润输入框 */
     .gate-form-input {
       width: 100%;
-      height: 52px;
-      border-radius: 16px;
-      border: none;
-      background: #f5f5f5;
+      height: 50px;
+      border-radius: 14px;
+      border: 1px solid #f0f0f0;
+      background: #f8faf8;
       padding: 0 18px;
       font-size: 14px;
       text-align: left;
@@ -118,66 +125,69 @@
       font-weight: 500;
       letter-spacing: 0.01em;
       box-shadow: none;
-      transition: background 0.18s ease;
+      transition: all 0.2s ease;
       -webkit-appearance: none;
       appearance: none;
     }
 
     .gate-form-input:focus {
-      background: #efefef;
+      background: #ffffff;
+      border-color: #07c160;
+      box-shadow: 0 0 0 3px rgba(7, 193, 96, 0.12);
     }
 
     .gate-form-input::placeholder {
       font-size: 13.5px;
       font-weight: 400;
-      color: #b0b0b0;
+      color: #b2b2b2;
       letter-spacing: 0;
     }
 
-    /* 黑色大圆角宽主按钮 */
+    /* 微信绿圆角主按钮 */
     .gate-submit-btn {
       position: relative;
       overflow: hidden;
       width: 100%;
-      height: 52px;
+      height: 50px;
       border-radius: 999px;
-      background: #000000;
+      background: #07c160;
       color: #ffffff;
       border: none;
-      font-size: 14.5px;
+      font-size: 15px;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      margin-top: 6px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      transition: transform 0.12s ease, background 0.18s ease;
+      margin-top: 4px;
+      box-shadow: 0 8px 22px rgba(7, 193, 96, 0.28);
+      transition: transform 0.14s ease, background 0.18s ease, box-shadow 0.18s ease;
     }
 
     .gate-submit-btn:active {
-      transform: scale(0.985);
-      background: #222222;
+      transform: scale(0.98);
+      background: #06ad56;
+      box-shadow: 0 4px 12px rgba(7, 193, 96, 0.22);
     }
 
     .gate-status-tip {
       min-height: 20px;
       margin-top: 10px;
-      font-size: 11.5px;
-      color: #ff3b30;
+      font-size: 12px;
+      color: #fa5151;
       font-weight: 500;
       transition: opacity 0.2s;
     }
 
-    /* 登录成功后的加载转圈 */
+    /* 登录成功后的微信绿加载层 */
     .gate-loading-overlay {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
-      background: #000000;
+      background: #07c160;
       display: none;
       flex-direction: row;
       align-items: center;
@@ -196,7 +206,7 @@
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.25);
+      border: 2px solid rgba(255, 255, 255, 0.35);
       border-top-color: #ffffff;
       animation: gateSpin 0.7s linear infinite;
     }
@@ -205,29 +215,20 @@
       to { transform: rotate(360deg); }
     }
 
-    /* 底部专属提示文字与带下划线辅助链接 */
+    /* 底部辅助链接 */
     .gate-sub-link {
-      margin-top: 14px;
+      margin-top: 12px;
       font-size: 12px;
-      color: #707070;
-      letter-spacing: 0.02em;
-      text-decoration: underline;
-      text-underline-offset: 3px;
+      color: #07c160;
+      letter-spacing: 0.01em;
       cursor: pointer;
-      font-weight: 400;
-      transition: color 0.15s ease;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.15s ease;
     }
 
     .gate-sub-link:active {
-      color: #111111;
-    }
-
-    .gate-footer-text {
-      margin-top: auto;
-      font-size: 10px;
-      color: #c4c4c4;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      opacity: 0.7;
     }
 
     * {
@@ -1702,7 +1703,8 @@
       display: flex;
       flex-direction: column;
       background: #ffffff;
-      padding: 0;
+      padding: 0 !important;
+      margin: 0 !important;
       animation: subpageFadeIn 0.25s ease forwards;
       will-change: opacity;
       overflow: hidden;
@@ -1756,12 +1758,13 @@
     .wx-moments-header {
       position: relative;
       width: 100%;
-      margin-bottom: 28px;
+      margin: 0 0 28px 0;
+      padding: 0;
     }
 
     .wx-moments-cover {
       width: 100%;
-      height: calc(230px + env(safe-area-inset-top));
+      height: calc(260px + env(safe-area-inset-top));
       background: #ededed url('https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=800&auto=format&fit=crop') center/cover no-repeat;
       cursor: pointer;
       position: relative;
@@ -2514,7 +2517,7 @@
       min-height: 0;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-      padding: 12px 16px calc(30px + env(safe-area-inset-bottom));
+      padding: 0 0 calc(90px + env(safe-area-inset-bottom)) 0 !important;
       background: #ffffff;
     }
 
@@ -3122,20 +3125,7 @@
     }
 
     .qq-typing-hint {
-      position: absolute;
-      left: 20px;
-      top: -13px;
-      z-index: 2;
-      color: #9b9b9b;
-      font-size: 10px;
-      line-height: 1;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: calc(100% - 40px);
-      pointer-events: none;
+      display: none !important;
     }
 
     .online-dot {
@@ -12115,8 +12105,9 @@
       margin: 0 0 6px;
       padding: 6px 10px;
       border-radius: 12px;
-      color: rgba(255, 255, 255, 0.8) !important;
-      background: rgba(255, 255, 255, 0.14) !important;
+      color: inherit;
+      opacity: 0.76;
+      background: rgba(128, 128, 128, 0.12) !important;
       font-size: 11px;
       line-height: 1.35;
       font-weight: 500;
@@ -12127,22 +12118,10 @@
       border-radius: 20px !important;
       display: block;
       padding: var(--bubble-pad-y, 8px) var(--bubble-pad-x, 12px) !important;
-      color: #ffffff !important;
       box-sizing: border-box !important;
     }
 
-    .qq-page.thread-mode .qq-message-row.friend .qq-message-bubble:has(.qq-message-quote) {
-      background: #4f4f4f !important;
-      color: #ffffff !important;
-    }
-
-    .qq-page.thread-mode .qq-message-row.self .qq-message-bubble:has(.qq-message-quote) {
-      background: #2f2f2f !important;
-      color: #ffffff !important;
-    }
-
     .qq-page.thread-mode .qq-message-bubble:has(.qq-message-quote) .qq-message-content {
-      color: #ffffff !important;
       font-size: var(--bubble-font-size, 14px);
       line-height: 1.5;
       font-weight: 400;
@@ -12286,17 +12265,24 @@
       background: #ffffff !important;
     }
 
-    /* iMessage 原生居中顶栏 */
+    /* ============================================================
+       单聊会话顶栏与消息容器：默认纯白实色，设置壁纸后开启透感
+       ============================================================ */
     .qq-page.thread-mode .qq-thread-head {
+      position: relative !important;
       display: grid !important;
       grid-template-columns: 44px 1fr 44px !important;
       gap: 8px;
       align-items: center;
-      min-height: 82px;
-      padding: calc(8px + env(safe-area-inset-top)) 14px 10px !important;
-      background: #fbfbfb !important;
-      border-bottom: 0.5px solid rgba(0, 0, 0, 0.06) !important;
+      min-height: calc(54px + env(safe-area-inset-top));
+      padding: calc(6px + env(safe-area-inset-top)) 14px 8px !important;
+      background: #ffffff !important;
+      border-bottom: 0.5px solid #f2f2f2 !important;
       box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      z-index: 25 !important;
+      flex-shrink: 0;
     }
 
     .qq-page.thread-mode .qq-thread-back {
@@ -12317,7 +12303,6 @@
       opacity: 0.35;
     }
 
-    /* iMessage 头像与名字垂直居中对齐结构 */
     .qq-page.thread-mode .qq-thread-header-info {
       display: flex !important;
       flex-direction: column !important;
@@ -12410,9 +12395,38 @@
       display: none !important;
     }
 
+    /* 默认消息滚动区：纯白实底、普通流式排布 */
     .qq-page.thread-mode .qq-thread-messages {
-      padding: 8px 16px calc(62px + env(safe-area-inset-bottom)) !important;
+      flex: 1 !important;
+      min-height: 0 !important;
+      width: 100% !important;
+      padding: 10px 14px calc(52px + env(safe-area-inset-bottom)) !important;
       background: #ffffff !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch;
+      position: relative !important;
+      z-index: 1;
+    }
+
+    /* 设置壁纸时的特化：顶栏全屏浮起、毛玻璃、消息穿透 */
+    .qq-page.thread-mode .qq-thread.has-wallpaper .qq-thread-head {
+      position: absolute !important;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(246, 246, 248, 0.55) !important;
+      backdrop-filter: blur(25px) saturate(190%) !important;
+      -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.06) !important;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02) !important;
+    }
+
+    .qq-page.thread-mode .qq-thread.has-wallpaper .qq-thread-messages {
+      position: absolute !important;
+      inset: 0 !important;
+      height: 100% !important;
+      padding: calc(72px + env(safe-area-inset-top)) 16px calc(76px + env(safe-area-inset-bottom)) !important;
+      background: transparent !important;
     }
 
     /* 会话开场卡已移除 */
@@ -12495,6 +12509,7 @@
       position: relative;
       display: inline-block !important;
       width: fit-content !important;
+      min-width: fit-content !important;
       max-width: 100% !important;
       padding: var(--bubble-pad-y, 8px) var(--bubble-pad-x, 14px) !important;
       color: #262626 !important;
@@ -12508,6 +12523,7 @@
       border-radius: 20px !important;
       word-break: break-word !important;
       overflow-wrap: break-word !important;
+      white-space: pre-wrap !important;
       box-sizing: border-box !important;
     }
 
@@ -12598,7 +12614,7 @@
       font-weight: 400;
     }
 
-    /* iMessage 原生质感底部输入条 (纯白与浅灰无彩色，去除上边框) */
+    /* 默认底部输入条：纯白实底、无分割线、小巧紧凑 */
     .qq-page.thread-mode .qq-thread-compose {
       position: fixed !important;
       left: 0;
@@ -12606,27 +12622,29 @@
       bottom: 0;
       z-index: 40;
       height: auto !important;
-      padding: 6px 10px calc(7px + env(safe-area-inset-bottom)) 10px !important;
+      padding: 5px 12px calc(6px + env(safe-area-inset-bottom)) 12px !important;
       display: flex !important;
       align-items: center;
       gap: 6px !important;
       background: #ffffff !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
       border-top: none !important;
       box-shadow: none !important;
     }
 
-    /* iMessage 左侧浅灰圆形 "+" 功能扩展按钮 */
+    /* 默认左侧圆形 "+" 功能按钮：小巧精致 */
     .qq-page.thread-mode .qq-compose-heart-btn {
       order: 1 !important;
       width: 32px !important;
       height: 32px !important;
       min-width: 32px !important;
       border-radius: 50% !important;
-      background: #e9e9eb !important;
+      background: #f4f4f5 !important;
       border: none !important;
       box-shadow: none !important;
-      color: #636366 !important;
-      font-size: 13px !important;
+      color: #3a3a3c !important;
+      font-size: 14px !important;
       display: grid !important;
       place-items: center !important;
       cursor: pointer;
@@ -12640,30 +12658,64 @@
     }
 
     .qq-page.thread-mode .qq-compose-heart-btn:active {
-      background: #d1d1d6 !important;
+      background: #e6e6ea !important;
       transform: scale(0.92) !important;
     }
 
-    /* 中间药丸胶囊输入框：微调至精致轻巧尺寸、超浅边框 */
+    /* 默认中间输入框：纯白底、大圆角、F0F0F0 半透明细边框、小巧尺寸 */
     .qq-page.thread-mode .qq-compose-card-strip {
       order: 2 !important;
       flex: 1;
       height: 36px;
       min-height: 36px;
-      padding: 0 4px 0 13px !important;
+      padding: 0 4px 0 14px !important;
       display: flex;
       align-items: center;
-      gap: 4px;
-      border-radius: 18px !important;
+      gap: 5px;
+      border-radius: 999px !important;
       background: #ffffff !important;
-      border: 1px solid rgba(0, 0, 0, 0.05) !important;
+      border: 1px solid rgba(240, 240, 240, 0.9) !important;
       box-shadow: none !important;
-      transition: border-color 0.15s ease;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
 
     .qq-page.thread-mode .qq-compose-card-strip:focus-within {
-      border-color: rgba(0, 0, 0, 0.09) !important;
-      box-shadow: none !important;
+      background: #ffffff !important;
+      border-color: rgba(210, 210, 210, 0.95) !important;
+    }
+
+    /* 设置壁纸时的特化：底栏毛玻璃悬浮透底 */
+    .qq-page.thread-mode .qq-thread.has-wallpaper .qq-thread-compose {
+      background: rgba(246, 246, 248, 0.55) !important;
+      backdrop-filter: blur(25px) saturate(190%) !important;
+      -webkit-backdrop-filter: blur(25px) saturate(190%) !important;
+      border-top: 0.5px solid rgba(0, 0, 0, 0.06) !important;
+      box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.02) !important;
+    }
+
+    .qq-page.thread-mode .qq-thread.has-wallpaper .qq-compose-heart-btn {
+      background: rgba(255, 255, 255, 0.45) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      border: 0.5px solid rgba(0, 0, 0, 0.06) !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+    }
+
+    .qq-page.thread-mode .qq-thread.has-wallpaper .qq-compose-heart-btn:active {
+      background: rgba(255, 255, 255, 0.75) !important;
+    }
+
+    .qq-page.thread-mode .qq-thread.has-wallpaper .qq-compose-card-strip {
+      background: rgba(255, 255, 255, 0.48) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 0.5px solid rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02) !important;
+    }
+
+    .qq-page.thread-mode .qq-thread.has-wallpaper .qq-compose-card-strip:focus-within {
+      background: rgba(255, 255, 255, 0.72) !important;
+      border-color: rgba(0, 0, 0, 0.18) !important;
     }
 
     .qq-page.thread-mode .qq-compose-input {
@@ -12675,28 +12727,28 @@
       background: transparent !important;
       box-shadow: none !important;
       color: #000000 !important;
-      font-size: 14px !important;
+      font-size: 13.5px !important;
       font-weight: 400;
       letter-spacing: -0.01em;
       outline: none !important;
     }
 
     .qq-page.thread-mode .qq-compose-input::placeholder {
-      color: #9c9ca0 !important;
-      font-size: 13.5px;
+      color: #a0a0a4 !important;
+      font-size: 13px;
       font-weight: 400;
     }
 
-    /* 浅灰色图标按钮 */
+    /* 浅灰色图标按钮：小巧紧凑 */
     .qq-page.thread-mode .qq-compose-icon-btn {
-      width: 29px !important;
-      height: 29px !important;
-      min-width: 29px !important;
+      width: 28px !important;
+      height: 28px !important;
+      min-width: 28px !important;
       border-radius: 50% !important;
       border: none !important;
       background: transparent !important;
       color: #8e8e93 !important;
-      font-size: 14px !important;
+      font-size: 13.5px !important;
       display: grid !important;
       place-items: center !important;
       flex-shrink: 0;
@@ -12705,11 +12757,11 @@
       transition: color 0.15s ease, transform 0.12s ease;
     }
 
-    /* 发送按钮：浅灰色麦克风图标 */
+    /* 纸飞机/麦克风多功能操作按钮 */
     .qq-page.thread-mode #qqSendMessage {
       background: transparent !important;
       color: #8e8e93 !important;
-      font-size: 14px !important;
+      font-size: 15px !important;
       box-shadow: none !important;
     }
 
@@ -12718,25 +12770,12 @@
       color: #1c1c1e !important;
     }
 
-    /* 接收回复按钮：浅灰色苹果图标 */
     .qq-page.thread-mode #qqRoleReply {
-      background: transparent !important;
-      color: #8e8e93 !important;
-      font-size: 14.5px !important;
-      box-shadow: none !important;
-    }
-
-    .qq-page.thread-mode #qqRoleReply:active {
-      transform: scale(0.9);
-      color: #1c1c1e !important;
+      display: none !important;
     }
 
     .qq-page.thread-mode .qq-typing-hint {
-      left: 14px;
-      top: -9px;
-      color: #8e8e93;
-      font-size: 10px;
-      font-weight: 400;
+      display: none !important;
     }
 
     .qq-page.thread-mode .qq-reply-preview {
@@ -14002,17 +14041,20 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      max-width: min(72%, 260px);
-      min-width: 0;
+      max-width: min(72%, 270px);
+      min-width: fit-content;
       width: auto;
-      flex: 0 1 auto;
+      flex: 0 0 auto;
     }
 
     .qq-page.thread-mode .group-msg-bubble-col.self-col {
       align-items: flex-end;
       display: flex;
       flex-direction: column;
-      max-width: min(72%, 260px);
+      max-width: min(72%, 270px);
+      min-width: fit-content;
+      width: auto;
+      flex: 0 0 auto;
     }
 
     .qq-page.thread-mode .group-msg-bubble-col .qq-message-bubble {
@@ -14025,16 +14067,20 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      max-width: min(72%, 260px);
-      min-width: 0;
+      max-width: min(72%, 270px);
+      min-width: fit-content;
       width: auto;
-      flex: 0 1 auto;
+      flex: 0 0 auto;
     }
 
     .qq-message-bubble-col.self-col {
       align-items: flex-end;
       display: flex;
       flex-direction: column;
+      max-width: min(72%, 270px);
+      min-width: fit-content;
+      width: auto;
+      flex: 0 0 auto;
     }
 
     /* 确保我方气泡与卡片在上，时间戳固定展示在气泡下方 */
@@ -14074,7 +14120,7 @@
       clear: both;
     }
 
-    /* 2. 引用块：气泡内半透明自然衬底，圆角语言与气泡一致 */
+    /* 2. 引用块：气泡内半透明自然衬底，圆角语言与气泡一致，随气泡深浅自适应色调 */
     .qq-message-quote,
     .qq-page.thread-mode .qq-message-quote {
       display: block !important;
@@ -14084,9 +14130,10 @@
       padding: 6px 10px !important;
       border: 0 !important;
       border-radius: 12px !important;
-      background: rgba(255, 255, 255, 0.14) !important;
+      background: rgba(128, 128, 128, 0.12) !important;
       box-shadow: none !important;
-      color: rgba(255, 255, 255, 0.82) !important;
+      color: inherit !important;
+      opacity: 0.78;
       font-size: 11.5px !important;
       line-height: 1.4 !important;
       font-weight: 400 !important;
@@ -14102,14 +14149,12 @@
 
     .qq-page.thread-mode .qq-message-row.self .qq-message-quote {
       border-radius: 12px !important;
-      background: rgba(255, 255, 255, 0.12) !important;
-      color: rgba(255, 255, 255, 0.82) !important;
     }
 
-    /* 3. 引用下方的正文：白色字体，与普通气泡正文完全一致 */
+    /* 3. 引用下方的正文：与气泡主文字保持一致 */
     .qq-page.thread-mode .qq-message-bubble:has(.qq-message-quote) .qq-message-content {
       display: block;
-      color: #ffffff !important;
+      color: inherit;
       font-size: var(--bubble-font-size, 14px) !important;
       line-height: 1.5 !important;
       font-weight: 400 !important;
@@ -17561,33 +17606,32 @@
   </style>
 </head>
 <body>
-  <!-- QuQ 邀请门禁独立遮罩层 (原创极简现代黑白美学) -->
+  <!-- QuQ 邀请门禁独立遮罩层 (微信绿 + 纯白 Ins 风) -->
   <section id="catpawGateLockScreen" aria-label="验证进入">
     <div class="gate-container">
-      <div class="gate-brand-logo">quq</div>
-      <div class="gate-brand-sub">DESKTOP SYSTEM</div>
+      <div class="gate-app-icon-wrap" aria-hidden="true">
+        <span class="gate-app-badge"><i class="fa-solid fa-shield-halved"></i></span>
+      </div>
 
-      <div class="gate-headline">登 录</div>
+      <div class="gate-headline">欢迎回来</div>
 
       <div class="gate-input-box">
-        <input class="gate-form-input" id="gateAccountInput" type="text" placeholder="账号 (邮箱/凭证)" autocomplete="off" />
+        <input class="gate-form-input" id="gateAccountInput" type="text" placeholder="账号 (邮箱 / 昵称)" autocomplete="off" />
         <input class="gate-form-input" id="gateInviteInput" type="password" placeholder="专属密钥 (邀请码)" autocomplete="off" />
         
         <button class="gate-submit-btn" id="gateSubmitBtn" type="button">
-          <span id="gateBtnText">进入世界</span>
+          <span id="gateBtnText">开启</span>
           <div class="gate-loading-overlay" id="gateLoadingOverlay">
             <span class="gate-loading-spinner"></span>
-            <span style="font-size:12.5px;">验证通过，正在连接…</span>
+            <span style="font-size:13px;">验证通过，正在连接…</span>
           </div>
         </button>
 
-        <a class="gate-sub-link" id="gateHintLink" href="javascript:void(0)">没有账号？凭邀请码进入</a>
+        <a class="gate-sub-link" id="gateHintLink" href="javascript:void(0)">凭专属邀请码直接进入</a>
       </div>
 
       <div class="gate-status-tip" id="gateStatusTip"></div>
     </div>
-
-    <div class="gate-footer-text">QUQ STUDIO · SECURED ENVIRONMENT</div>
   </section>
 
   <main class="desktop">
@@ -17839,7 +17883,7 @@
             <span>更换添加到手机主屏幕时显示的桌面应用图标。修改后将动态更新 Apple Touch Icon 与 Web App Manifest。</span>
             
             <div style="display:flex; align-items:center; gap:13px; margin:14px 0 8px; padding:12px; background:#f7f7f7; border-radius:12px;">
-              <div id="pwaIconCurrentPreview" style="width:56px; height:56px; border-radius:12px; background:#ffffff url('https://i.postimg.cc/fW0vHc6S/IMG-0042.jpg') center/cover no-repeat; border:0; box-shadow:none; flex-shrink:0;"></div>
+              <div id="pwaIconCurrentPreview" style="width:56px; height:56px; border-radius:12px; background:#ffffff url('https://i.postimg.cc/g05TMqLd/IMG-0225.jpg') center/cover no-repeat; border:0; box-shadow:none; flex-shrink:0;"></div>
               <div style="flex:1; min-width:0;">
                 <strong style="display:block; font-size:14px; color:#111; font-weight:400;" id="pwaIconStatusLabel">当前桌面图标：默认图标</strong>
                 <span style="display:block; font-size:12px; color:#a0a0a0; margin-top:4px;">可上传正方形图片，系统自动适配桌面尺寸</span>
@@ -18544,11 +18588,8 @@
               </div>
               <div class="qq-compose-card-strip">
                 <input class="qq-compose-input" id="qqMessageInput" type="text" placeholder="信息·RCS" autocomplete="off" />
-                <button class="qq-compose-icon-btn" id="qqRoleReply" type="button" aria-label="接收回复" title="接收回复">
-                  <i class="fa-brands fa-apple"></i>
-                </button>
                 <button class="qq-compose-icon-btn" id="qqSendMessage" type="button" aria-label="发送" title="发送">
-                  <i class="fa-solid fa-microphone"></i>
+                  <i class="fa-solid fa-paper-plane"></i>
                 </button>
               </div>
             </div>
@@ -20660,9 +20701,8 @@
           <div class="field">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
               <label for="rolePersonaInput" style="margin-bottom:0;">角色详细人设</label>
-              <button class="qq-role-mini-btn" id="openPersonaAiGeneratorBtn" type="button" style="display:inline-flex; align-items:center; gap:5px; height:28px; padding:0 12px; font-size:11px; background:#0f0f0f; color:#ffffff;">
-                <i class="fa-solid fa-wand-magic-sparkles" style="font-size:10px;"></i>
-                <span>AI 帮我写人设</span>
+              <button id="openPersonaAiGeneratorBtn" type="button" title="AI 帮我写人设" aria-label="AI 帮我写人设" style="width:28px; height:28px; border:none; border-radius:8px; background:transparent; color:#4a4a4a; font-size:14px; display:grid; place-items:center; cursor:pointer; transition:opacity 0.15s ease;">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
               </button>
             </div>
             <textarea id="rolePersonaInput" placeholder="请输入角色的人设、性格、说话方式等"></textarea>
@@ -24367,7 +24407,7 @@ const momentsAutoStatus = document.querySelector("#momentsAutoStatus");
     const PROMPT_LOGIC_VERSION = "P-2026-02-22-AF";
     let dbInstance = null;
 
-    const DEFAULT_PWA_DESKTOP_ICON = "https://i.postimg.cc/fW0vHc6S/IMG-0042.jpg";
+    const DEFAULT_PWA_DESKTOP_ICON = "https://i.postimg.cc/g05TMqLd/IMG-0225.jpg";
     const DEFAULT_ROLE_AVATAR = "https://i.postimg.cc/FF29mLxw/IMG-0160.jpg";
 
     const appState = {
@@ -27425,7 +27465,10 @@ const momentsAutoStatus = document.querySelector("#momentsAutoStatus");
       const newId = () => `msg_${Date.now()}_${Math.random().toString(16).slice(2)}`;
 
       for (const text of finalReplies) {
+        // 每条消息弹出前，模拟起伏的打字与停顿感
+        await simulateRealisticTypingRhythm(displayName);
         await waitForRoleReplyPacing(text);
+        hideRoleTypingIndicator();
 
         const cleaned = cleanRoleReplyText(text);
         if (!cleaned) continue;
@@ -30612,6 +30655,18 @@ const momentsAutoStatus = document.querySelector("#momentsAutoStatus");
 
       const bubbleThemeKey = settings.bubbleTheme || "default";
       const themeObj = BUBBLE_THEMES[bubbleThemeKey] || BUBBLE_THEMES.default;
+
+      // 智能判断深浅色：通过气泡前景色或背景明暗推算
+      const isSelfLight = !themeObj.selfColor.toLowerCase().includes("fff");
+      const isFriendLight = !themeObj.friendColor.toLowerCase().includes("fff");
+
+      // 浅色底使用深色引用文本，深色底使用浅白色引用文本
+      const selfQuoteColor = isSelfLight ? "rgba(0, 0, 0, 0.65)" : "rgba(255, 255, 255, 0.82)";
+      const selfQuoteBg = isSelfLight ? "rgba(0, 0, 0, 0.06)" : "rgba(255, 255, 255, 0.14)";
+
+      const friendQuoteColor = isFriendLight ? "rgba(0, 0, 0, 0.65)" : "rgba(255, 255, 255, 0.82)";
+      const friendQuoteBg = isFriendLight ? "rgba(0, 0, 0, 0.06)" : "rgba(255, 255, 255, 0.14)";
+
       let dynStyleTag = document.querySelector("#dynamic-bubble-theme-style");
       if (!dynStyleTag) {
         dynStyleTag = document.createElement("style");
@@ -30629,15 +30684,25 @@ const momentsAutoStatus = document.querySelector("#momentsAutoStatus");
         }
         .qq-page.thread-mode .qq-message-row.self .qq-message-bubble:has(.qq-message-quote) {
           background: ${themeObj.selfBg} !important;
+          color: ${themeObj.selfColor} !important;
         }
         .qq-page.thread-mode .qq-message-row.friend .qq-message-bubble:has(.qq-message-quote) {
           background: ${themeObj.friendBg} !important;
+          color: ${themeObj.friendColor} !important;
         }
         .qq-page.thread-mode .qq-message-row.self .qq-message-bubble:has(.qq-message-quote) .qq-message-content {
           color: ${themeObj.selfColor} !important;
         }
         .qq-page.thread-mode .qq-message-row.friend .qq-message-bubble:has(.qq-message-quote) .qq-message-content {
           color: ${themeObj.friendColor} !important;
+        }
+        .qq-page.thread-mode .qq-message-row.self .qq-message-quote {
+          color: ${selfQuoteColor} !important;
+          background: ${selfQuoteBg} !important;
+        }
+        .qq-page.thread-mode .qq-message-row.friend .qq-message-quote {
+          color: ${friendQuoteColor} !important;
+          background: ${friendQuoteBg} !important;
         }
         .qq-page.thread-mode .qq-message-row.friend .qq-message-bubble::before {
           background: ${themeObj.friendBg} !important;
@@ -30652,6 +30717,7 @@ const momentsAutoStatus = document.querySelector("#momentsAutoStatus");
 
       const threadMessages = document.querySelector("#qqThreadMessages");
       if (settings.wallpaper) {
+        qqThreadPanel.classList.add("has-wallpaper");
         qqThreadPanel.style.setProperty("background-image", `url(${settings.wallpaper})`, "important");
         qqThreadPanel.style.setProperty("background-size", "cover", "important");
         qqThreadPanel.style.setProperty("background-position", "center", "important");
@@ -30660,6 +30726,7 @@ const momentsAutoStatus = document.querySelector("#momentsAutoStatus");
           threadMessages.style.setProperty("background", "transparent", "important");
         }
       } else {
+        qqThreadPanel.classList.remove("has-wallpaper");
         qqThreadPanel.style.removeProperty("background-image");
         qqThreadPanel.style.removeProperty("background-size");
         qqThreadPanel.style.removeProperty("background-position");
@@ -30674,6 +30741,7 @@ const momentsAutoStatus = document.querySelector("#momentsAutoStatus");
       const headerName = document.querySelector("#qqThreadHeaderName");
       if (headerName) {
         headerName.textContent = name || "叶子";
+        headerName.dataset.actualName = name || "叶子";
       }
       const headerAvatar = document.querySelector("#qqThreadHeaderAvatar");
       if (headerAvatar) {
@@ -31740,6 +31808,7 @@ const momentsAutoStatus = document.querySelector("#momentsAutoStatus");
 
       qqMessageInput.value = "";
       clearReplyTarget();
+      syncSendBtnMode();
       renderChatList();
       saveState();
     }
@@ -35635,19 +35704,57 @@ function isSpaceDelimitedLanguage(text) {
       });
     }
 
-    function showRoleTypingIndicator() {
-      if (!qqTypingText) return;
-      const base = getCurrentChatBase();
-      if (base.isGroup) {
-        qqTypingText.textContent = "多人正在输入…";
+    // 拟真人机打字状态机：支持在顶栏角色名处闪现“对方正在输入…”
+    let typingStatusTimer = null;
+
+    function setHeaderTypingText(text) {
+      const headerName = document.querySelector("#qqThreadHeaderName");
+      if (!headerName) return;
+      if (text) {
+        headerName.textContent = text;
+        headerName.style.color = "#8e8e93";
       } else {
-        qqTypingText.textContent = `${getChatDisplayName(base)} 正在输入…`;
+        headerName.textContent = headerName.dataset.actualName || "角色";
+        headerName.style.color = "";
       }
     }
 
+    function showRoleTypingIndicator(customSpeaker = "") {
+      const base = getCurrentChatBase();
+      let label = "对方正在输入…";
+      if (base.isGroup) {
+        label = customSpeaker ? `${customSpeaker} 正在输入…` : "多人正在输入…";
+      }
+      setHeaderTypingText(label);
+    }
+
     function hideRoleTypingIndicator() {
-      if (!qqTypingText) return;
-      qqTypingText.textContent = "";
+      if (typingStatusTimer) {
+        clearTimeout(typingStatusTimer);
+        typingStatusTimer = null;
+      }
+      setHeaderTypingText("");
+    }
+
+    // 随机微延迟辅助
+    function sleepMs(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    // 模拟真实人类打字节奏：输入几秒 -> 停下思考恢复名字 -> 再次输入 -> 准备发出
+    async function simulateRealisticTypingRhythm(speakerName = "") {
+      // 1. 开始输入 (0.5s ~ 1.0s)
+      showRoleTypingIndicator(speakerName);
+      await sleepMs(500 + Math.floor(Math.random() * 500));
+
+      // 2. 50% 概率停下修改/犹豫，恢复成原名字 (0.3s ~ 0.6s)
+      if (Math.random() > 0.45) {
+        setHeaderTypingText("");
+        await sleepMs(300 + Math.floor(Math.random() * 350));
+        // 重新敲字
+        showRoleTypingIndicator(speakerName);
+        await sleepMs(400 + Math.floor(Math.random() * 450));
+      }
     }
 
     const STATUS_LEAK_PATTERNS = [
@@ -36862,7 +36969,15 @@ function isSpaceDelimitedLanguage(text) {
             continue;
           }
 
+          // 真实打字起伏节奏：先输入，可能停顿，再次输入后气泡弹出
+          let currentSpeakerLabel = "";
+          if (isGroup) {
+            const prefixMatchTemp = outputText.match(/^[【\[]([^】\]\n]{1,20})[】\]]/);
+            if (prefixMatchTemp) currentSpeakerLabel = prefixMatchTemp[1].trim();
+          }
+          await simulateRealisticTypingRhythm(currentSpeakerLabel);
           await waitForRoleReplyPacing(text);
+          hideRoleTypingIndicator();
 
           // 强力解析记忆簿存入指令：[记忆簿:事件内容:心声感想]
           const memoryBookMatch = outputText.match(/^[\[【]?\s*(?:记忆簿|记入记忆簿|角色记忆簿|存入记忆|记小本本)\s*[:：]\s*([^:：\]】]+)\s*[:：]\s*([\s\S]+?)\s*[\]】]?$/i);
@@ -37251,6 +37366,17 @@ function isSpaceDelimitedLanguage(text) {
           if (qqThreadMessages) qqThreadMessages.scrollTop = qqThreadMessages.scrollHeight;
         });
         showRoleReplyNotifications(notificationBase, notificationItems);
+
+        // 核心细节：消息全部发完后，65% 概率短暂再次出现“对方正在输入…”，
+        // 模拟真人“本想再补充一句，删删改改最后作罢”的真实心理，停留 0.8s~1.6s 后消失
+        if (Math.random() > 0.35) {
+          setTimeout(() => {
+            showRoleTypingIndicator();
+            setTimeout(() => {
+              hideRoleTypingIndicator();
+            }, 800 + Math.floor(Math.random() * 800));
+          }, 400);
+        }
       } catch (error) {
         console.error("角色回复失败详情：", error);
         await showApiErrorAlert(error, "角色回复失败");
@@ -38627,8 +38753,40 @@ function isSpaceDelimitedLanguage(text) {
       });
     }
 
-    if (qqSendMessage) qqSendMessage.addEventListener("click", sendCurrentMessage);
-    if (qqRoleReply) qqRoleReply.addEventListener("click", requestRoleReply);
+    // 动态同步发送/接收按钮状态（有字为纸飞机发送；为空时为麦克风接收）
+    function syncSendBtnMode() {
+      if (!qqSendMessage || !qqMessageInput) return;
+      const hasText = !!qqMessageInput.value.trim();
+      const icon = qqSendMessage.querySelector("i");
+      if (!icon) return;
+
+      if (hasText) {
+        icon.className = "fa-solid fa-paper-plane";
+        qqSendMessage.setAttribute("aria-label", "发送");
+        qqSendMessage.title = "发送";
+        qqSendMessage.dataset.btnMode = "send";
+      } else {
+        icon.className = "fa-solid fa-microphone";
+        qqSendMessage.setAttribute("aria-label", "接收回复");
+        qqSendMessage.title = "接收回复";
+        qqSendMessage.dataset.btnMode = "reply";
+      }
+    }
+
+    if (qqSendMessage) {
+      qqSendMessage.addEventListener("click", () => {
+        const mode = qqSendMessage.dataset.btnMode || "send";
+        if (mode === "reply") {
+          requestRoleReply();
+        } else {
+          sendCurrentMessage();
+        }
+      });
+    }
+
+    if (qqRoleReply) {
+      qqRoleReply.addEventListener("click", requestRoleReply);
+    }
 
     if (triggerAiGhostReply) {
       triggerAiGhostReply.addEventListener("click", () => {
@@ -38910,13 +39068,17 @@ function isSpaceDelimitedLanguage(text) {
     }
 
     if (qqMessageInput) {
-      qqMessageInput.addEventListener("input", checkGroupMentionTrigger);
+      qqMessageInput.addEventListener("input", () => {
+        checkGroupMentionTrigger();
+        syncSendBtnMode();
+      });
       qqMessageInput.addEventListener("keyup", (e) => {
         if (e.key === "Escape") {
           closeGroupMentionPopup();
         } else if (e.key !== "Enter") {
           checkGroupMentionTrigger();
         }
+        syncSendBtnMode();
       });
       qqMessageInput.addEventListener("blur", () => {
         // 延迟关闭，保证点击候选人列表时事件能正常触发
@@ -38929,6 +39091,8 @@ function isSpaceDelimitedLanguage(text) {
           sendCurrentMessage();
         }
       });
+      // 初始化按钮状态
+      syncSendBtnMode();
     }
 
     if (closeTextEditor) closeTextEditor.addEventListener("click", closeEditorModal);
@@ -39984,9 +40148,9 @@ ${activeTags.map((t, idx) => `${idx + 1}. 【${t}】`).join("\n")}
             submitBtn.disabled = false;
             if (input) input.value = "";
             if (accountInput) accountInput.value = "";
-          }, 800);
+          }, 600);
         } else {
-          tip.textContent = "邀请密钥有误，无权进入系统";
+          tip.textContent = "邀请密钥有误，请重新输入";
           input.classList.add("shake-error");
           setTimeout(() => input.classList.remove("shake-error"), 500);
         }
@@ -40005,7 +40169,7 @@ ${activeTags.map((t, idx) => `${idx + 1}. 【${t}】`).join("\n")}
         hintLink.addEventListener("click", () => {
           if (input) {
             input.focus();
-            tip.textContent = "请在密码栏输入 QuQ 专属邀请码";
+            tip.textContent = "请在密码栏输入专属邀请码进入";
           }
         });
       }
