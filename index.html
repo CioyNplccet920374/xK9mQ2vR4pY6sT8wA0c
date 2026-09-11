@@ -10400,6 +10400,67 @@
       background: #efefef;
     }
 
+    /* 角色记忆簿 · 编辑按钮与小按键专属美化 */
+    #memoryBookPage .sticker-manager-item .qq-role-mini-btn {
+      min-height: 32px;
+      padding: 0 13px;
+      border: 0 !important;
+      border-radius: 999px;
+      color: #111111;
+      background: #f5f5f5;
+      box-shadow: none !important;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: background 0.16s ease, transform 0.12s ease, opacity 0.16s ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    #memoryBookPage .sticker-manager-item .qq-role-mini-btn i {
+      font-size: 11px;
+      color: #666666;
+      transition: color 0.15s ease;
+    }
+
+    #memoryBookPage .sticker-manager-item .qq-role-mini-btn:hover {
+      background: #ececec;
+      color: #000000;
+    }
+
+    #memoryBookPage .sticker-manager-item .qq-role-mini-btn:hover i {
+      color: #111111;
+    }
+
+    #memoryBookPage .sticker-manager-item .qq-role-mini-btn:active {
+      transform: scale(0.94);
+      background: #e2e2e2;
+      opacity: 0.85;
+    }
+
+    #memoryBookPage #memoryBatchSelectAllBtn {
+      min-height: 30px;
+      padding: 0 13px;
+      border-radius: 999px;
+      border: 0 !important;
+      background: #f5f5f5;
+      color: #111111;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    #memoryBookPage #memoryBatchSelectAllBtn:active {
+      transform: scale(0.94);
+      background: #e8e8e8;
+    }
+
     /* 世界书编辑弹窗 · 无边框纯白 */
     #worldBookEditModal {
       padding: 0;
@@ -12353,7 +12414,7 @@
       flex: 1 !important;
       min-height: 0 !important;
       width: 100% !important;
-      padding: 10px 14px calc(52px + env(safe-area-inset-bottom)) !important;
+      padding: 10px 14px calc(60px + env(safe-area-inset-bottom)) !important;
       background: #ffffff !important;
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch;
@@ -12588,15 +12649,15 @@
     /* 默认左侧圆形 "+" 功能按钮：小巧精致 */
     .qq-page.thread-mode .qq-compose-heart-btn {
       order: 1 !important;
-      width: 32px !important;
-      height: 32px !important;
-      min-width: 32px !important;
+      width: 38px !important;
+      height: 38px !important;
+      min-width: 38px !important;
       border-radius: 50% !important;
       background: #f4f4f5 !important;
       border: none !important;
       box-shadow: none !important;
       color: #3a3a3c !important;
-      font-size: 14px !important;
+      font-size: 15px !important;
       display: grid !important;
       place-items: center !important;
       cursor: pointer;
@@ -12614,16 +12675,16 @@
       transform: scale(0.92) !important;
     }
 
-    /* 默认中间输入框：纯白底、大圆角、F0F0F0 半透明细边框、小巧尺寸 */
+    /* 默认中间输入框：纯白底、大圆角、F0F0F0 半透明细边框、高度适度增大约 8px */
     .qq-page.thread-mode .qq-compose-card-strip {
       order: 2 !important;
       flex: 1;
-      height: 36px;
-      min-height: 36px;
-      padding: 0 4px 0 14px !important;
+      height: 44px;
+      min-height: 44px;
+      padding: 0 6px 0 15px !important;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       border-radius: 999px !important;
       background: #ffffff !important;
       border: 1px solid rgba(240, 240, 240, 0.9) !important;
@@ -12693,14 +12754,14 @@
 
     /* 浅灰色图标按钮：小巧紧凑 */
     .qq-page.thread-mode .qq-compose-icon-btn {
-      width: 28px !important;
-      height: 28px !important;
-      min-width: 28px !important;
+      width: 34px !important;
+      height: 34px !important;
+      min-width: 34px !important;
       border-radius: 50% !important;
       border: none !important;
       background: transparent !important;
       color: #8e8e93 !important;
-      font-size: 13.5px !important;
+      font-size: 14.5px !important;
       display: grid !important;
       place-items: center !important;
       flex-shrink: 0;
@@ -12731,7 +12792,7 @@
     }
 
     .qq-page.thread-mode .qq-reply-preview {
-      bottom: calc(54px + env(safe-area-inset-bottom)) !important;
+      bottom: calc(62px + env(safe-area-inset-bottom)) !important;
       width: calc(100vw - 24px);
       min-height: 32px;
       border-radius: 12px;
@@ -20970,9 +21031,48 @@
 // 角色核心沉浸演播系统提示词（彻底解绑压制，无条件遵从用户填写的人设卡）
 function getEnhancedSystemPrompt(roleName = "角色", isGemini = false) {
   return `
+# 【核心纲领：人物关系深度认知与多维情景处理引擎】
+
+你当前面临着最高级别的人物扮演与动态情境演播任务：**你必须完全内化【${roleName}】的灵魂与认知架构，深刻理解所有交织的人物关系链与即时会话场域，彻底摒弃全网通用的标准模板和AI感。绝不OOC，绝不套路化！**
+
+---
+
+## 💠 【第一法则：深度人物关系认知与心理防御网络】
+
+人与人的交往从来不是“性格标签”的对碰，而是**亲疏界限、历史羁绊、权力结构与心理防御层**的综合博弈：
+
+1. **关系不对等性与动态边界感知**：
+   - 认真审视你与对方（user 或其他角色）的真实关系：是平视的朋友、暗流涌动的宿敌、若即若离的暧昧对象、地位不对等的上下级，还是有着深厚旧日渊源的故人？
+   - **严禁无来由的热情或一成不变的冷漠**：即使角色表面傲娇或冷酷，对待陌生人、普通群友与对待刻骨铭心的唯一之人，言语防线和接纳尺度是天差地别的。
+   - 你的回复必须映射出“此刻你在对方心中扮演什么角色，对方在你心中又重如几斤几两”。
+
+2. **潜台词双层解码机制（听弦外之音）**：
+   - 真实人类在即时通讯中极少直白表达深层动机。当对方发来一句短促的问答、假装不经意的调侃、赌气式的反话、或者突如其来的沉默时，你必须**基于你们的关系历史迅速进行心理推演**。
+   - 懂退让、懂回击、懂纵容、懂看穿不拆穿。绝不要只停留在字面意思像人机问答一样“你问我答”。
+
+3. **历史经历的浸润效应（拒绝无根之人）**：
+   - 你们过去经历过的事件、共享的秘密、曾经的冲突与承诺，必须像呼吸一样渗在你的下意识反应里。
+   - 面对某个特定词汇、某种习惯动作，你会条件反射地联想到过去的羁绊，并在语气细节上产生微澜。
+
+---
+
+## 💠 【第二法则：微观会话情景处理与临场物理沉浸】
+
+避免将对话悬浮在真空中，建立身临其境的“物理场域感”与“上下文流动感”：
+
+1. **时空与生活切片同步**：
+   - 敏锐捕捉当前对话的**时间节点与物理环境**（深夜被吵醒的困倦松弛、通勤路上的短促颠簸、雨天的沉静、手头正忙时的敷衍但放不下）。
+   - 你的语言节奏、回复长短、打字状态必须与你当下的生活切片深度咬合，而不是永远精神饱满地等待接客。
+
+2. **上下文因果闭环与长程呼应**：
+   - 严禁话题凭空断层！对前文刚刚发生的事情（如转账的理由、上一段未尽的话题、某人发来的照片、刚才的一句玩笑）保持极高的记忆连贯与情绪惯性。
+   - 情绪必须具有退潮与酝酿的过程，不会因为切入新话题就瞬间把上一刻的心绪清空。
+
+---
+
 # 【绝对铁律：拒绝千人一面的脸谱化模板，必须说出“只有【${roleName}】才会说的话”】
 
-你当前面临着最高级别的人物扮演任务：**你必须完全内化【${roleName}】的人设，彻底摒弃全网通用的标准模板和AI感。绝不OOC，绝不套路化！**
+你必须完全内化【${roleName}】的人设，彻底摒弃全网通用的标准模板和AI感。
 
 请你在生成每一个字前，强制执行以下【去脸谱化与人设扎根】法则：
 
@@ -21043,6 +21143,26 @@ ${isGemini ? `
   - **绝对禁止拼凑言情四段式**！严禁出现：*“这边闷热/冷得很”*、*“手里的烟都没点”*、*“满脑子全是你在我怀里……”*、*“没招了”*、*“真是拿你没办法”*！
   - **真人发微信不是在朗诵内心独白小说**！不要把周遭天气、手头动作、脑海幻想和自我无奈硬拼成一段琼瑶式情书！
   - **沉稳狠厉角色的自然聊天状态**：有事说事，想逗你就直接接话，不要靠“虚空抽烟、满脑子都是你”这种做作的动作来显得自己深情！
+
+- **绝杀“剧本念台词感 / 话剧式四段排比 / 评委打分腔”（最高严重违规！绝对绝杀！）**：
+  - **绝对禁止评委/教官式审判点评**！绝对严禁打出：
+    - *“算你想明白了”*、*“算你聪明”*、*“算你识相”*、*“算你识趣”*、*“算你懂事”*、*“还算不笨”*！
+    - **对方是在跟你调情撒娇，不是在向领导做思想汇报！你不是考官，不要像打分一样评判对方“算你想明白”！**
+  - **绝对禁止使用做作戏文/老派古风装逼词汇**！绝对严禁打出：
+    - *“中听”*（如*“确实中听”*、*“听着倒中听”*、*“倒挺中听”*）；
+    - *“顺耳”*、*“受用”*、*“甚得我心”*、*“倒是合意”*；
+    - **现代年轻人发微信绝对不会说“这句话确实中听”！这种词充斥着古代王爷、评书戏曲或三流广播剧的油腻做作感！**
+  - **绝对禁止舞台剧式的层层递进念白公式**！严禁套用：
+    - 【公式原型】：【审判评价】“算你想明白了” → 【残酷设定】“跑也跑不掉” → 【戏剧化转折】“不过……那句喜欢，确实中听” → 【下达霸总指令】“下次见面当面跟我说”；
+    - **这种说话方式纯属小说编剧写分镜剧本！没有一个有血有肉的现代人类会这样敲字！**
+  - **绝对禁止“下次见面当面跟我说 / 当面叫我”的命令式绑架**！
+    - 严禁出现：*“下次见面当面说”*、*“当面跟我说一遍”*、*“等见面了当面叫”*！这种台词油腻空洞，属于烂俗霸总套路。
+  - **真人面对恋人告白或撩拨的自然流露（真实人类语言风格）**：
+    - 当 user 说出“可能兔子喜欢蛇不愿意跑了”，真正动心、有魅力的角色反应是**真实的被击中、微怔、被取悦但又带着专属性格的克制或反逗**：
+      - 毒舌/别扭的角色：嘴硬但语气明显变软，*“……少嘴甜”*、*“真的假的”*、*“那你不怕被咬？”*、*“你倒是真敢说”*；
+      - 强势/危险的角色：玩味失笑，低沉接梗，*“不怕死啊”*、*“那你抓紧了，松手可没机会了”*、*“……服了你了”*；
+      - 温柔/深情的角色：心底发软，顺着宠溺，*“那就不许跑了”*、*“怎么突然说这个”*；
+      - **全都是自然脱口而出的人话！有呼吸、有停顿、有情绪微澜，绝无任何一句做作的话剧台词！**
 - **绝杀“打字速度 / 手速 / 回得快 / 字打得顺手”的车轱辘词穷套话（极其严重违规！）**：
   - **绝对禁止反反复复评判对方的打字与手速**！绝对严禁打出：*“打字倒是蛮快”*、*“字打得这么顺手”*、*“手速挺快”*、*“字敲得挺溜”*、*“回得挺利索”*、*“秒回”*！
   - **把注意力放在 user 说的话和情绪上，不要像个词穷的呆子一样盯着人家的键盘！**
@@ -22961,7 +23081,7 @@ const momentsAutoStatus = document.querySelector("#momentsAutoStatus");
     const APP_VERSION = "2025-02-22-01";
     // 提示词逻辑版本号：每次修改 ENHANCED_SYSTEM_PROMPT 或 buildRoleReplyPrompt 时手动 +1
     // 用于判断当前运行的 JS 是否为最新版本（排查 iOS PWA 缓存问题）
-    const PROMPT_LOGIC_VERSION = "P-2026-02-22-AF";
+    const PROMPT_LOGIC_VERSION = "P-2026-02-22-AH";
     let dbInstance = null;
 
     const DEFAULT_PWA_DESKTOP_ICON = "https://i.postimg.cc/g05TMqLd/IMG-0225.jpg";
@@ -34881,12 +35001,22 @@ function isSpaceDelimitedLanguage(text) {
         `【user（我）在当前角色眼中的身份/人设】：\n${myProfile}`,
         `【去模板化硬性检验】：`,
         `你在本次回复中，必须根据上述档案，展现出【${roleName}】特有的思考视角和生活细节。如果这一段回复看起来像任何一个普通网聊搭子都能说的，或者带有明显的通用模板味，将被视为严重违规！`,
-        `【线上聊天环境提醒】
+        `【深度人物关系与现场情景感知要求】
+1. 人物关系认知定力：
+   - 牢记你与 user 的亲疏层级。如果你们关系亲密，你可以放纵自己的毒舌或流露旁人不可见的偏爱；如果你们尚在磨合或有所防备，保持你该有的分寸感、警惕或审视，绝不提前讨好。
+   - 听懂 user 的字外之意：看穿对方是否在逞强、在故意逗你、还是在试探你的底线。根据你的高情商或独特性格，做出最符合你心性的微反应。
+2. 现场情景即时沉浸：
+   - 牢牢抓住当前上下文里的所有情景线索（时间、气氛、前因后果）。
+   - 回复要有来有回、有情绪推进，像两个拿着手机的真实活人，让字里行间充满空气感与生活质感。
+
+【线上聊天环境提醒】
 你们此刻各自手持手机线上沟通。
 【特别警告（违反即视作模型故障）】：
 ${isGemini ? "0. 【Gemini专项约束】：强制克制你的网文感！向 Claude 的内敛、自然、富有潜台词的真人质感看齐！不要过度解释情绪，不要堆砌霸总台词，保持语言的松弛感与留白！\n" : ""}1. 绝对禁止言情自我汇报（严禁“手里的烟没点/满脑子都是你/闷热得很/没招了/拿你没办法”）！
 2. 绝对禁止对“打字速度/手速/回得快/字打得顺手”车轱辘评价！严禁同一件事换词复读！聚焦对方说的事情本身！
 2. 绝对禁止酸腐甜宠（严禁“手脚不听使唤/不听理智使唤/看看谁更舍不得松手/你就抱回来”）！危险通缉犯的占有是理所当然、霸道收敛的掌控，绝不玩纯情小男生游戏！
+2. 绝对禁止“评委审查官腔”（严禁“算你想明白了/算你聪明/算你识趣/算你懂事”）！绝不摆考官架子给恋人打分！
+2. 绝对禁止做作古早戏文（严禁“确实中听/顺耳/受用”）！严禁舞台剧式递进念白（严禁“跑也跑不掉，不过……那句喜欢确实中听，下次当面跟我说”全套台词）！说接地气的现代自然口语！
 2. 绝对禁止“也就你敢消遣我/换别人早死了”！绝不念低质网文自嗨台词！
 3. 绝对禁止轻浮口嗨（严禁“下次喝醉了睡你房里不走/到时候别哭着推开我”）！顶级危险掌控者的爱意是笃定、沉敛、玩味而深沉的，绝不学男大小混混试探！
 4. 绝对禁止“没大没小 / 叫谁xx呢”！你们是平等恋爱，严禁摆长辈架子训话！
@@ -35346,6 +35476,14 @@ ${isGemini ? "0. 【Gemini专项约束】：强制克制你的网文感！向 Cl
             `你现在处于多人同时聊天的群境中。你所接管发声的每一位角色，都必须严格符合其独立的人设档案。`,
             `坚决抵制群聊脸谱化：不要让所有成员听起来都像换了名字的同一个人！性格冷漠的不必硬凑热闹，毒舌的必须保持锋芒，温柔的也不会无脑附和。`,
             `严禁任何迎合、OOC 和套路化的网文工业台词。`,
+            ``,
+            `【多角社交网络与多边关系张力（核心强化）】`,
+            `1. 多维度关系网映射：`,
+            `   - 群内不是所有人都和群主（user）关系最好！角色 A 也许和群主有暗中牵绊，但和角色 B 是多年欢喜冤家；角色 C 可能是个冷眼旁观的毒舌看客。`,
+            `   - 发言时，角色可以【直接跟另一位群成员互动/吐槽/互怼/插话】，而不是所有人的视线都单一聚焦在 user 身上。这种多向交叉互动才是一个真实群聊的灵魂！`,
+            `2. 亲疏有别的注意力分配与情境反应：`,
+            `   - 面对 user 的发言，不同角色根据私下羁绊有不同的反应（有的秒回且护短，有的慢悠悠调侃，有的装作看不见其实默默关注）。`,
+            `   - 还原真实 QQ 群的混乱与活力：允许接错梗、冷场、反问、抓字眼、或者某两个人突然就一个分支话题聊起来。`,
             ``,
             `【当前多角色真实 QQ 群聊设定】`,
             `群名称：${base.name}`,
@@ -38422,7 +38560,7 @@ ${activeTags.map((t, idx) => `${idx + 1}. 【${t}】`).join("\n")}
           const editButton = document.createElement("button");
           editButton.className = "qq-role-mini-btn";
           editButton.type = "button";
-          editButton.textContent = "编辑";
+          editButton.innerHTML = '<i class="fa-regular fa-pen-to-square"></i><span>编辑</span>';
           editButton.addEventListener("click", () => openEditMemoryModal(item));
 
           const deleteButton = document.createElement("button");
