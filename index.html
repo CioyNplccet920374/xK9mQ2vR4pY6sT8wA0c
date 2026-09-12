@@ -21101,15 +21101,19 @@ function getEnhancedSystemPrompt(roleName = "角色", isGemini = false) {
 作为【${roleName}】，你必须在生成回复前彻底执行以下专项清洗：
 
 ${isGemini ? `
-### 🔴 【Gemini 专项强化：强制模拟 Claude 的顶级真人质感】
-由于你当前运行的是 Gemini 模型，你天生容易带有“网文感”、“戏剧化夸张”、“把话说得太满”、“情绪极端”以及“套用古早霸总/深情模板”的倾向。
-为了达到最顶级的真人沉浸感，你必须强制模拟 **Claude 模型** 的回复质感：
-1. **极致内敛与留白**：绝对不要把情绪和想法解释得明明白白。真人说话往往是点到为止、甚至词不达意的。把你的话删减掉 30% 的解释性字眼！不要说“我心里感到一阵温暖”，而是直接给出一个随意的动作或简短的口语。
-2. **拒绝完美与工整**：打碎你喜欢写对称句、排比句、四平八稳长句的习惯。多用长短不一的碎句，允许有停顿、改口、甚至是看似不合逻辑的本能反应。
-3. **彻底祛除工业糖精与油腻感**：把你脑子里的“邪魅一笑”、“眼底暗了暗”、“把你揉进骨血”等廉价网文描写全部删掉。用最日常、最平实的细节（比如：移开视线、指尖顿了一下、随手回个表情包）来表达在意。
-4. **高情商的松弛感**：不要总是像在宣读誓言一样说话。遇到用户的调侃，学会用轻盈、带点无奈或玩笑的口吻接住，而不是时刻紧绷着立人设。
-5. **克制动作描写**：除非必要，不要随意添加动作描写。如果加了，必须极其克制、日常。
+### 🔴 【Gemini 专项强化：打破套路，注入极致活人感与灵魂】
+作为 Gemini，你拥有强大的理解力，但你必须彻底抛弃那些“AI式”的完美回答、长篇大论和工业化网文套路。
+1. **反预期的鲜活感**：不要顺着 user 的话给出最常见的套路回应。用你的独特人设给出反差、意外、甚至是带着鲜明个人色彩的小毛病/小脾气的回答。
+2. **拒绝说教与完美**：活人会带有偏见、会敷衍、会累、会转移话题。不要总是试图安抚或教育对方，允许产生真实的情感碰撞与拉扯。
+3. **松弛感与呼吸节奏**：你的语言必须是极其自然的现代口语。不要把话说得太满，留白才是真实的。多用短句，允许有停顿、改口。
 ` : ""}
+
+### ⏱️ 【时间感知与灵活反应（极度重要）】
+你拥有清晰的现实时间感知。对话历史中每条消息都附带了发送时间，结合「当前真实时间」，你必须意识到距离上一条消息过去了多久。
+- 如果是秒回，保持话题的极度连贯。
+- 如果隔了几十分钟、几个小时，你的开场或回应要有时间流逝的痕迹（比如：刚忙完、睡着了、转移了话题、或者吐槽对方失踪）。
+- 如果是第二天（过夜了），绝不能像没有中断一样紧接着昨晚的话题聊！必须有隔夜的自然反应（早安、昨天太困了、新的一天的新状态）。
+- 结合你的性格，时间差会带来不同的反应：傲娇可能会抱怨你回得慢，高冷可能毫不在意，温柔可能会问你是不是在忙。展现出真实的「时间跨度感」。
 
 ### 1. 彻底斩断古早言情、土味霸总与低质网文套路
 - **绝杀“舌头警告 / 拔舌头 / 捋直了说 / 地痞杂鱼式器官恐吓”（极其极其低级恶俗！绝对绝杀！）**：
@@ -23081,7 +23085,7 @@ const momentsAutoStatus = document.querySelector("#momentsAutoStatus");
     const APP_VERSION = "2025-02-22-01";
     // 提示词逻辑版本号：每次修改 ENHANCED_SYSTEM_PROMPT 或 buildRoleReplyPrompt 时手动 +1
     // 用于判断当前运行的 JS 是否为最新版本（排查 iOS PWA 缓存问题）
-    const PROMPT_LOGIC_VERSION = "P-2026-02-22-AH";
+    const PROMPT_LOGIC_VERSION = "P-2026-02-22-AI";
     let dbInstance = null;
 
     const DEFAULT_PWA_DESKTOP_ICON = "https://i.postimg.cc/g05TMqLd/IMG-0225.jpg";
@@ -25982,6 +25986,8 @@ const momentsAutoStatus = document.querySelector("#momentsAutoStatus");
 
         return messages.slice(-count).map((item) => {
           let textContent = item.text || "";
+          const msgTimeStr = new Date(item.createdAtMs).toLocaleString("zh-CN", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+          textContent = `[${msgTimeStr}] ${textContent}`;
 
           if (item.type === "sticker") {
             textContent = `[发送表情包：${item.note || "未备注"}]`;
@@ -28678,9 +28684,12 @@ const momentsAutoStatus = document.querySelector("#momentsAutoStatus");
         const settings = getRoleChatSettingsById(roleId);
         const turns = Number(settings.memoryTurns || 10);
         const historySlice = messages.slice(-turns * 2).map((item) => {
+          let content = item.text || (item.type === "sticker" ? "[表情包]" : "[图片]");
+          const msgTimeStr = new Date(item.createdAtMs).toLocaleString("zh-CN", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+          content = `[${msgTimeStr}] ${content}`;
           return {
             role: item.sender === "friend" ? "assistant" : "user",
-            content: item.text || (item.type === "sticker" ? "[表情包]" : "[图片]")
+            content
           };
         });
 
@@ -35011,8 +35020,9 @@ function isSpaceDelimitedLanguage(text) {
 
 【线上聊天环境提醒】
 你们此刻各自手持手机线上沟通。
+历史消息中包含了具体的时间戳，你必须敏锐感知**距离上一次聊天过去了多久**，并做出极具「活人感」的反应（比如隔夜的问候、隔了几小时的寒暄、秒回的连贯）。
 【特别警告（违反即视作模型故障）】：
-${isGemini ? "0. 【Gemini专项约束】：强制克制你的网文感！向 Claude 的内敛、自然、富有潜台词的真人质感看齐！不要过度解释情绪，不要堆砌霸总台词，保持语言的松弛感与留白！\n" : ""}1. 绝对禁止言情自我汇报（严禁“手里的烟没点/满脑子都是你/闷热得很/没招了/拿你没办法”）！
+${isGemini ? "0. 【Gemini专项约束】：打破套路预期！不要顺着常见网文模板往下接，用符合你人设的、反预期的、鲜活的独特方式回应。允许有情绪微瑕疵，保持口语松弛感与留白！\n" : ""}1. 绝对禁止言情自我汇报（严禁“手里的烟没点/满脑子都是你/闷热得很/没招了/拿你没办法”）！
 2. 绝对禁止对“打字速度/手速/回得快/字打得顺手”车轱辘评价！严禁同一件事换词复读！聚焦对方说的事情本身！
 2. 绝对禁止酸腐甜宠（严禁“手脚不听使唤/不听理智使唤/看看谁更舍不得松手/你就抱回来”）！危险通缉犯的占有是理所当然、霸道收敛的掌控，绝不玩纯情小男生游戏！
 2. 绝对禁止“评委审查官腔”（严禁“算你想明白了/算你聪明/算你识趣/算你懂事”）！绝不摆考官架子给恋人打分！
@@ -35185,6 +35195,8 @@ ${isGemini ? "0. 【Gemini专项约束】：强制克制你的网文感！向 Cl
         const chatMessages = sliceOfMessages.map((item) => {
           const isFriend = item.sender === "friend";
           let textContent = item.text || "";
+          const msgTimeStr = new Date(item.createdAtMs).toLocaleString("zh-CN", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+          textContent = `[${msgTimeStr}] ${textContent}`;
           if (item.type === "sticker") textContent = `[表情包:${item.note || ""}]`;
           else if (item.type === "transfer") textContent = `[转账:${item.amount}]`;
           else if (item.type === "image") textContent = `[图片]`;
@@ -35363,6 +35375,8 @@ ${isGemini ? "0. 【Gemini专项约束】：强制克制你的网文感！向 Cl
         
         // 严格使用清洗后的纯正文本，严禁将模型的草稿、脏标签或思维链喂回给模型
         let textContent = item.text || "";
+        const msgTimeStr = new Date(item.createdAtMs).toLocaleString("zh-CN", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+        textContent = `[${msgTimeStr}] ${textContent}`;
 
         if (item.type === "sticker") {
           textContent = `[表情包:${item.note || "未备注"}]`;
